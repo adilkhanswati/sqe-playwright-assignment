@@ -1,0 +1,14 @@
+{
+  "name": "saucedemo-sqe-adil",
+  "version": "1.0.0",
+  "description": "Software Quality Engineering assignment - Playwright tests for saucedemo.com",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui"
+  },
+  "author": "Adil Khan",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
