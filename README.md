@@ -1,7 +1,7 @@
 # Software Quality Engineering - Playwright Assignment
 
 **Name:** Adil Khan
-**Student ID:** SE232003  <!-- confirm this matches your enrolment ID -->
+**Student ID:** SE231076
 **Tested application:** https://www.saucedemo.com
 
 This repository contains Playwright UI automation for the Saucedemo web store.

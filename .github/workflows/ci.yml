@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  playwright:
+    name: Playwright on Chromium
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install npm packages
+        run: npm ci
+
+      - name: Download Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Execute Playwright tests
+        run: npx playwright test --reporter=list,html
+
+      - name: Save report artifact
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report
+          path: playwright-report/
+          retention-days: 7
